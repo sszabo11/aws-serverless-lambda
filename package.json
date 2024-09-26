@@ -1,0 +1,21 @@
+{
+  "name": "bok",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "nodemon handler.ts"
+  },
+  "description": "",
+  "dependencies": {
+    "@types/express": "^5.0.0",
+    "@types/mysql": "^2.15.26",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mysql": "^2.18.1",
+    "serverless-http": "^3.2.0"
+  },
+  "devDependencies": {
+    "@types/dotenv": "^8.2.0",
+    "nodemon": "^3.1.7",
+    "tsx": "^4.19.1"
+  }
+}
