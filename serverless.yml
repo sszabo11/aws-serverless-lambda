@@ -8,10 +8,14 @@ service: bok
 provider:
   name: aws
   runtime: nodejs20.x
-  timeout: 60
+  timeout: 30
 
 functions:
   api:
-    handler: handler.handler
+    handler: src/handler.function
+    environment:
+      DATABASE_PASSWORD: ${aws:ssm:/inspections/rds_password}
+      DATABASE_USER: ${aws:ssm:/inspections/rds_user}
+      DATABASE_HOST: ${aws:ssm:/inspections/rds_host}
     events:
       - httpApi: "*"

@@ -2,7 +2,7 @@
   "name": "bok",
   "version": "1.0.0",
   "scripts": {
-    "dev": "nodemon handler.ts"
+    "dev": "nodemon src/handler.ts"
   },
   "description": "",
   "dependencies": {

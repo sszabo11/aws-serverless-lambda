@@ -21,9 +21,8 @@ app.get("/inspections/get", (_, res) => {
       return res.status(500).json({ error: "Internal Server Error" });
     }
 
-    console.log("Data: ", JSON.parse(JSON.stringify(results)));
-
     let data = JSON.parse(JSON.stringify(results));
+    console.log(data);
 
     return res.status(200).json({ data });
   });
@@ -39,8 +38,6 @@ app.get("/inspections/get/:id", (req, res) => {
         return res.status(500).json({ error: "Internal Server Error" });
       }
 
-      console.log("Data: ", JSON.parse(JSON.stringify(results)));
-
       let data = JSON.parse(JSON.stringify(results));
 
       return res.status(200).json({ data });
@@ -55,5 +52,5 @@ if (process.env.NODE_ENV === "dev") {
     console.log(`Server listening on port ${port}`);
   });
 } else {
-  exports.handler = serverless(app);
+  exports.function = serverless(app);
 }
