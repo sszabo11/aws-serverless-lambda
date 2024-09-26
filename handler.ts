@@ -1,5 +1,3 @@
-//const serverless = require("serverless-http");
-//const express = require("express");
 import express from "express";
 import serverless from "serverless-http";
 import mysql from "mysql";
@@ -10,18 +8,11 @@ const app = express();
 
 var pool = mysql.createPool({
   connectionLimit: 10,
-  host: "free-tier.cjgsm8866640.us-east-1.rds.amazonaws.com",
-  user: "admin",
-  password: "hello123",
+  host: process.env.DATABASE_HOST,
+  user: process.env.DATABASE_USER,
+  password: process.env.DATABASE_PASSWORD,
   database: "test",
 });
-
-//var conn = mysql.createConnection({
-//  host: "free-tier.cjgsm8866640.us-east-1.rds.amazonaws.com",
-//  user: "admin",
-//  password: "hello123",
-//  database: "test",
-//});
 
 app.get("/inspections/get", (_, res) => {
   pool.query("SELECT * FROM Inspections;", (err, results) => {
